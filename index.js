@@ -5,6 +5,8 @@ const Logo = require("./lib/logo.js")
 
 
                                                                 /* ================= GLOBAL VARIABLES ================= */
+const svgDir          =  "./examples";
+const svgFileName     =  "svgLogo.svg";
 const logoText        =  "logoText";
 const logoTextColor   =  "logoTextColor";
 const logoShape       =  "logoShape";
@@ -40,14 +42,33 @@ const questions = [
 
 
                                                                 /* ================= GLOBAL FUNCTIONS ================= */
+
+/**
+ * Error handler for file write operation.
+ * @param {*} error error generated from writing to file
+ */
+function writeToFileErrorHandler(error) {
+    error ? console.log(error) : console.log("Success!");
+}
+
+function createSvgFile(renderedShape) {
+    const svgFileContent = `<svg>
+        ${renderedShape}
+</svg>`;
+
+    fs.writeFileSync(`${svgDir}/${svgFileName}`, svgFileContent, writeToFileErrorHandler);
+}
+
 function generateSvgLogo(userInput) {
+    let renderedShape = ""
     try {
         const svgLogo = new Logo(userInput);
-        svgLogo.render();
+        renderedShape = svgLogo.render();
     } catch (error) {
         console.log(error);
     }
     // TODO: Create SVG File using logo object
+    createSvgFile(renderedShape);
 }
 
 function init() {
