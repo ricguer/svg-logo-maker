@@ -1,6 +1,7 @@
                                                                 /* ===================== IMPORTS ====================== */
 const inquirer = require("inquirer");
 const fs = require("fs");
+const Logo = require("./lib/logo.js")
 
 
                                                                 /* ================= GLOBAL VARIABLES ================= */
@@ -40,9 +41,13 @@ const questions = [
 
                                                                 /* ================= GLOBAL FUNCTIONS ================= */
 function generateSvgLogo(userInput) {
-    // TODO: Create text
-    // TODO: Create shape
-    // TODO: Create SVG File
+    try {
+        const svgLogo = new Logo(userInput);
+        svgLogo.render();
+    } catch (error) {
+        console.log(error);
+    }
+    // TODO: Create SVG File using logo object
 }
 
 function init() {
