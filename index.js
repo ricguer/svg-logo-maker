@@ -45,3 +45,5 @@ function init() {
     .prompt(questions);
     // TODO: Use response to generate logos.
 }
+
+init();
