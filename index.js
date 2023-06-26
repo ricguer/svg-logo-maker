@@ -39,11 +39,17 @@ const questions = [
 
 
                                                                 /* ================= GLOBAL FUNCTIONS ================= */
+function generateSvgLogo(userInput) {
+    // TODO: Create text
+    // TODO: Create shape
+    // TODO: Create SVG File
+}
+
 function init() {
                                                                 /* Inquirer and collect user responses to add to README */
     inquirer
-    .prompt(questions);
-    // TODO: Use response to generate logos.
+    .prompt(questions)
+    .then(response => generateSvgLogo(response));
 }
 
 init();
