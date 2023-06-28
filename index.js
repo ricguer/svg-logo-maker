@@ -51,26 +51,43 @@ function writeToFileErrorHandler(error) {
     error ? console.log(error) : console.log("Success!");
 }
 
-function createSvgFile(renderedShape) {
-    const svgFileContent = `<svg>
-        ${renderedShape}
+
+/**
+ * Generates SVG file using the rendered logo.
+ * @param {string} renderedLogo rendered logo according to user specifications
+ */
+function createSvgFile(renderedLogo) {
+    const svgFileContent = `
+<svg>
+    ${renderedLogo}
 </svg>`;
 
     fs.writeFileSync(`${svgDir}/${svgFileName}`, svgFileContent, writeToFileErrorHandler);
 }
 
+
+/**
+ * Creates logo object according to user specifications.
+ * 
+ * @param {*} userInput user response to inquire questions
+ */
 function generateSvgLogo(userInput) {
-    let renderedShape = ""
+    let renderedLogo = ""
     try {
         const svgLogo = new Logo(userInput);
-        renderedShape = svgLogo.render();
+        renderedLogo = svgLogo.render();
     } catch (error) {
         console.log(error);
     }
-    // TODO: Create SVG File using logo object
-    createSvgFile(renderedShape);
+
+    createSvgFile(renderedLogo);
 }
 
+
+/**
+ * Initializes application by asking user for logo text 
+ * and shape.
+ */
 function init() {
                                                                 /* Inquirer and collect user responses to add to README */
     inquirer
@@ -78,4 +95,4 @@ function init() {
     .then(response => generateSvgLogo(response));
 }
 
-init();
+init();                                                         /* Application entry point                              */
