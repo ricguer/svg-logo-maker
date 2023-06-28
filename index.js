@@ -58,7 +58,7 @@ function writeToFileErrorHandler(error) {
  */
 function createSvgFile(renderedLogo) {
     const svgFileContent = `
-<svg>
+<svg viewBox="0 0 300 200">
     ${renderedLogo}
 </svg>`;
 
