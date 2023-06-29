@@ -49,6 +49,7 @@ const questions = [
  */
 function createSvgFile(renderedLogo) {
 
+                                                                /* Synchronously write SVG file                         */
     fs.writeFileSync(`${svgDir}/${svgFileName}`, renderedLogo, (error) => {
         error ? console.log(error) : console.log("Success!");
     });
@@ -69,7 +70,7 @@ function generateSvgLogo(userInput) {
         console.log(error);
     }
 
-    createSvgFile(renderedLogo);
+    createSvgFile(renderedLogo);                                /* Create the SVG file using the rendered logo          */
 }
 
 
