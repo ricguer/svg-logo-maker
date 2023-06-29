@@ -24,4 +24,4 @@ MIT
 Use "Jest" to test the utility. Unit tests as provided in the file "shapes.test.js".
 
 ## Video
-[![Video Walkthrough](./videoWalkthrough.mp4)]
+[![Video Walkthrough](./videoWalkthrough.mov)]
