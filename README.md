@@ -8,7 +8,8 @@ This project is a command-line application that takes user input to generate a l
 1. [Installation](#installation)
 2. [Usage](#usage)
 3. [License](#license)
-5. [Tests](#tests)
+4. [Tests](#tests)
+5. [Video](#video)
 
 ## Installation
 Clone the project, install the node packages according to the "package.json" file, and run through the command line.
@@ -21,3 +22,6 @@ MIT
 
 ## Tests
 Use "Jest" to test the utility. Unit tests as provided in the file "shapes.test.js".
+
+## Video
+[![Video Walkthrough](./videoWalkthrough.mp4)]
