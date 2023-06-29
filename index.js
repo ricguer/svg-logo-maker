@@ -44,25 +44,14 @@ const questions = [
                                                                 /* ================= GLOBAL FUNCTIONS ================= */
 
 /**
- * Error handler for file write operation.
- * @param {*} error error generated from writing to file
- */
-function writeToFileErrorHandler(error) {
-    error ? console.log(error) : console.log("Success!");
-}
-
-
-/**
  * Generates SVG file using the rendered logo.
  * @param {string} renderedLogo rendered logo according to user specifications
  */
 function createSvgFile(renderedLogo) {
-    const svgFileContent = `
-<svg viewBox="0 0 300 200">
-    ${renderedLogo}
-</svg>`;
 
-    fs.writeFileSync(`${svgDir}/${svgFileName}`, svgFileContent, writeToFileErrorHandler);
+    fs.writeFileSync(`${svgDir}/${svgFileName}`, renderedLogo, (error) => {
+        error ? console.log(error) : console.log("Success!");
+    });
 }
 
 
